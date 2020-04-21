@@ -38,7 +38,7 @@
         <!-- 百度地图API KEY-->
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="***"
+            android:value="woCljv9q1jpt92VGOZL4uGeh"
             tools:node="replace"/>
         <meta-data
             android:name="channel"

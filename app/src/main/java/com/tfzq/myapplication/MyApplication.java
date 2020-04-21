@@ -62,7 +62,10 @@ public class MyApplication extends Application {
             String city = location.getCity();    //获取城市信息
             String province = location.getProvince();
             String street = location.getLocationDescribe();    //获取地址信息
-            Log.d("location", "country:" + country + " province:" + province + " city:" + city + " street:" + street);
+
+            //获取定位类型、定位错误返回码，具体信息可参照类参考中BDLocation类中的说明
+            int errorCode = location.getLocType();
+            Log.d("location", "errorCode:"+errorCode +" country:" + country + " province:" + province + " city:" + city + " street:" + street);
             TkStatisticAgent.setLocationParams(country, province, city, street, String.valueOf(lat), String.valueOf(loc));
 //            mLocationClient.stop();
         }
