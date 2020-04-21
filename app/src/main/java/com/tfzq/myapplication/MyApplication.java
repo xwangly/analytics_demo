@@ -1,6 +1,7 @@
 package com.tfzq.myapplication;
 
 import android.app.Application;
+import android.util.Log;
 
 import com.baidu.location.BDAbstractLocationListener;
 import com.baidu.location.BDLocation;
@@ -61,8 +62,9 @@ public class MyApplication extends Application {
             String city = location.getCity();    //获取城市信息
             String province = location.getProvince();
             String street = location.getLocationDescribe();    //获取地址信息
+            Log.d("location", "country:" + country + " province:" + province + " city:" + city + " street:" + street);
             TkStatisticAgent.setLocationParams(country, province, city, street, String.valueOf(lat), String.valueOf(loc));
-            mLocationClient.stop();
+//            mLocationClient.stop();
         }
     }
 }
