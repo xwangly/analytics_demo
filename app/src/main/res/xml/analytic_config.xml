@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <!-- 统计配置-->
+    <item
+        name="enableLocation"
+        description="是否启用发送地理位置信息"
+        value="true"/>
+    <item
+        name="network_time_consuming"
+        description="网络超时阈值配置（单位毫秒）"
+        value="5000"/>
+    <item
+        name="serverUrl"
+        description="统计发送的服务器地址"
+        value="https://actionjd.tfzq.com:50443/servlet/json"/>
+    <item
+        name="enableCatchException"
+        description="是否捕获上传异常日志"
+        value="true"/>
+    <!--策略配置-->
+    <item
+        name="cacheMaxNum"
+        description="本地缓存的最大数据数目"
+        value="2000"/>
+    <item
+        name="policy"
+        description="统计上传策略(0:实时上传；1:启动时上传；2:间隔上传;3:最小数目发送,4:最小间隔或数目发送,5:进入后台时发送;)"
+        value="1"/>
+    <item
+        name="reportIntervalTime"
+        description="统计上传间隔时间，需大于90000毫秒"
+        value="90000"/>
+    <item
+        name="onlyWifiEnabled"
+        description="设置是否仅WIFI模式下发送(0:否,1:是)默认0"
+        value="0"/>
+    <!--后台分配配置-->
+    <!--<item name="app_code" description="后台分配的应用唯一标识" value="23b543b07b5a4e158e670569949bcc79"/>-->
+    <!--<item name="app_id" description="后台分配的应用唯一标识" value="2"/>-->
+    <item
+        name="app_id"
+        description="后台分配的应用唯一标识"
+        value="***"/>
+
+    <!--<item name="program_id" description="" value="9"/>-->
+    <item
+        name="program_id"
+        description=""
+        value="1"/>
+    <!--用于开发模式-->
+    <item
+        name="isShowTip"
+        description="是否发送请求的时候显示tip提示(0:否,1:是)默认0"
+        value="0"/>
+
+    <!--事件actionId-->
+    <item
+        name="startAction"
+        description="启动事件动作"
+        value="1"/>
+    <item
+        name="pageAction"
+        description="页面访问事件动作"
+        value="2"/>
+    <item
+        name="appAction"
+        description="APP周期事件动作"
+        value="3"/>
+    <item
+        name="exceptionAction"
+        description="APP异常事件动作"
+        value="4"/>
+    <item
+        name="netWorkExceptionAction"
+        description="网络异常事件动作"
+        value="5"/>
+
+
+    <!--请求加签配置-->
+    <item
+        name="signKey"
+        description="签名种子，配置经过aes加密后的base64编码"
+        value="***"/>
+    <item
+        name="debugEnabled"
+        description="debugEnabled"
+        value="true"/>
+</config>
