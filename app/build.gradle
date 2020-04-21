@@ -1,0 +1,47 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "27.0.2"
+    defaultConfig {
+        applicationId "com.tfzq.myapplication"
+        minSdkVersion 16
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api(name: "analytics-${ANALYTICS_VERSION}-release", ext: 'aar')
+
+    // support库依赖
+//    implementation "com.android.support:cardview-v7:${SUPPORT_LIB_VERSION}"
+    implementation "com.android.support:appcompat-v7:${SUPPORT_LIB_VERSION}"
+    implementation "io.reactivex.rxjava2:rxjava:${RX_JAVA_VERSION}"
+    implementation "io.reactivex.rxjava2:rxandroid:${RX_ANDROID_VERSION}"
+    implementation "com.squareup.okhttp3:okhttp:${OKHTTP_VERSION}"
+    implementation 'com.google.protobuf:protobuf-java:3.6.0'
+    implementation 'com.google.protobuf:protoc:3.6.0'
+    implementation 'com.googlecode.protobuf-java-format:protobuf-java-format:1.2'
+
+}
