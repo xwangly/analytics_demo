@@ -56,17 +56,30 @@ public class MyApplication extends Application {
 
         @Override
         public void onReceiveLocation(BDLocation location) {
-            double lat = location.getLatitude();    //获取纬度信息
-            double loc = location.getLongitude();    //获取经度信息
-            String country = location.getCountry();    //获取国家信息
-            String city = location.getCity();    //获取城市信息
-            String province = location.getProvince();
-            String street = location.getLocationDescribe();    //获取地址信息
+
 
             //获取定位类型、定位错误返回码，具体信息可参照类参考中BDLocation类中的说明
             int errorCode = location.getLocType();
-            Log.d("location", "errorCode:"+errorCode +" country:" + country + " province:" + province + " city:" + city + " street:" + street);
-            TkStatisticAgent.setLocationParams(country, province, city, street, String.valueOf(lat), String.valueOf(loc));
+            if (errorCode == 161) {
+                //定位成功
+
+                double lat = location.getLatitude();    //获取纬度信息
+                double loc = location.getLongitude();    //获取经度信息
+                String country = location.getCountry();    //获取国家信息
+                String city = location.getCity();    //获取城市信息
+                String province = location.getProvince();
+                String street = location.getLocationDescribe();    //获取地址信息
+                Log.d("location", "errorCode:"+errorCode +" country:" + country + " province:" + province + " city:" + city + " street:" + street);
+                //设置定位信息，也可以使用其它API，demo中使用的是百度定位，参考百度定位api
+                TkStatisticAgent.setLocationParams(country, province, city, street, String.valueOf(lat), String.valueOf(loc));
+                mLocationClient.stop();
+            } else {
+                //定位失败
+                //错误码：
+                //62:无法获取有效定位依据，请检查运营商网络或者WiFi网络是否正常开启，尝试重新请求定位   需要检查App的定位权限，设置为总是允许
+                Log.e("location", "errorCode:"+errorCode);
+            }
+
 //            mLocationClient.stop();
         }
     }

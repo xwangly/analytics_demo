@@ -26,4 +26,37 @@
 -keep class com.tfzq.bdas.protobuf.** {
     *;
 }
+
+#okhttp
+-dontwarn okhttp3.**
+-dontwarn okio.**
+
+# 设置所有 native 方法不被混淆
+-keepclasseswithmembernames class * {
+    native <methods>;
+}
+
+
+#protobuf
+-keep class com.google.protobuf.** {*;}
+#-keep class google.protobuf.** {*;}
+-keep class bitfin.dreamserver.protobuf.** {*;}
+-keep class com.tfzq.bdas.protobuf.** {*;}
+-dontwarn com.googlecode.protobuf.format.SmileFormat
+-dontwarn com.googlecode.protobuf.format.JavaPropsFormat$Tokenizer
+-keep class org.**
+
+
+-keepnames class * implements java.io.Serializable
+-keepclassmembers class * implements java.io.Serializable {
+    static final long serialVersionUID;
+    private static final java.io.ObjectStreamField[] serialPersistentFields;
+    !static !transient <fields>;
+    private void writeObject(java.io.ObjectOutputStream);
+    private void readObject(java.io.ObjectInputStream);
+    java.lang.Object writeReplace();
+    java.lang.Object readResolve();
+}
 -dontwarn java.lang.invoke.**
+-dontwarn sun.misc.**
+-keep class sun.misc.** { *; }
